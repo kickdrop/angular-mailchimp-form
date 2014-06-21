@@ -70,8 +70,6 @@ Now browse to the app at `http://localhost:8000/app/index.html`.
         directives.js   --> application directives
         filters.js      --> custom angular filters
         services.js     --> custom angular services
-      partials/             --> angular view partials (partial html templates)
-        mailchimp-form.html
 
     test/               --> test config and source files
       protractor-conf.js    --> config file for running e2e tests with Protractor

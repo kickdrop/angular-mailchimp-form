@@ -46,7 +46,8 @@ mailchimpSubscriptionControllers.controller('MailchimpSubscriptionCtrl', ['$log'
       // Successfully sent data to MailChimp.
       function (response) {
         // Define message containers.
-        mailchimp.resultMessage = '';
+        mailchimp.successMessage = '';
+        mailchimp.errorMessage = '';
 
         // Store the result from MailChimp
         mailchimp.result = response.result;
@@ -59,14 +60,13 @@ mailchimpSubscriptionControllers.controller('MailchimpSubscriptionCtrl', ['$log'
             if (errorMessageParts.length > 1)
               errorMessageParts.shift(); // Remove the error number
             mailchimp.errorMessage = errorMessageParts.join(' ');
-            mailchimp.resultMessage = mailchimp.errorMessage;
           } else {
-            mailchimp.resultMessage = 'Sorry! An unknown error occured.';
+            mailchimp.errorMessage = 'Sorry! An unknown error occured.';
           }
         }
         // MailChimp returns a success.
         else if (response.result === 'success') {
-          mailchimp.resultMessage = response.msg;
+          mailchimp.successMessage = response.msg;
         }
       },
 

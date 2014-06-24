@@ -43,7 +43,7 @@
       </div>
 
       <!-- Show result message if MailChimp after submission. -->
-      <div ng-show="mailchimp.resultMessage !== undefined" class="result-message">
+      <div ng-cloak ng-hide="mailchimp.resultMessage === undefined" class="result-message">
         <span>{{mailchimp.resultMessage}}</span>
       </div>
     </form>

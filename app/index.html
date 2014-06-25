@@ -25,7 +25,7 @@
   <div class="wrapper">
     <img src="images/phone.png" class="phone" />
 
-    <form name="MailchimpSubscriptionForm" ng-controller="MailchimpSubscriptionCtrl" ng-submit="addSubscription(mailchimp)" ng-class="{success: mailchimp.result === 'success'}">
+    <form name="MailchimpSubscriptionForm" ng-controller="MailchimpSubscriptionCtrl" ng-class="{success: mailchimp.result === 'success'}">
       <div ng-hide="mailchimp.result === 'success'" class="form-container">
         <input class="hidden" type="hidden" ng-model="mailchimp.username" ng-init="mailchimp.username='kickdrop'">
         <input class="hidden" type="hidden" ng-model="mailchimp.dc" ng-init="mailchimp.dc='us3'">

@@ -40,13 +40,13 @@ mailchimpSubscriptionControllers.controller('MailchimpSubscriptionCtrl', ['$log'
     };
     MailChimpSubscription = $resource(url, params, actions);
 
-    // mailchimp.successMessage = "Almost finished... We need to confirm your email address. To complete the subscription process, please click the link in the email we just sent you.";
     // Send subscriber data to MailChimp
     MailChimpSubscription.save(
       // Successfully sent data to MailChimp.
       function (response) {
         // Define message containers.
-        mailchimp.resultMessage = '';
+        mailchimp.successMessage = '';
+        mailchimp.errorMessage = '';
 
         // Store the result from MailChimp
         mailchimp.result = response.result;
@@ -59,14 +59,13 @@ mailchimpSubscriptionControllers.controller('MailchimpSubscriptionCtrl', ['$log'
             if (errorMessageParts.length > 1)
               errorMessageParts.shift(); // Remove the error number
             mailchimp.errorMessage = errorMessageParts.join(' ');
-            mailchimp.resultMessage = mailchimp.errorMessage;
           } else {
-            mailchimp.resultMessage = 'Sorry! An unknown error occured.';
+            mailchimp.errorMessage = 'Sorry! An unknown error occured.';
           }
         }
         // MailChimp returns a success.
         else if (response.result === 'success') {
-          mailchimp.resultMessage = response.msg;
+          mailchimp.successMessage = "Thanks for subscribing! Please confirm the email you receive to complete the process.";
         }
       },
 

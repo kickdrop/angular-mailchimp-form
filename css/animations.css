@@ -1,18 +1,19 @@
 .result-message {
-  -webkit-animation-duration: .4s;
-  animation-duration: .4s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-  -webkit-animation-name: slideInLeft;
-  animation-name: slideInLeft;
-  opacity:1;
-  padding:10px;
+  -webkit-animation-name: flipInX;
+  animation-name: flipInX;
+  -webkit-animation-delay: .6s;
 }
 
-.result-message.ng-hide {
-  line-height:0;
-  opacity:0;
-  padding:0 10px;
-  -webkit-animation-name: slideOutLeft;
-  animation-name: slideOutLeft;
+.form-container.ng-hide {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: flipOutX;
+  animation-name: flipOutX;
+  -webkit-animation-delay: 0s;
 }

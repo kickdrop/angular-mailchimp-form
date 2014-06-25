@@ -40,7 +40,7 @@ mailchimpSubscriptionControllers.controller('MailchimpSubscriptionCtrl', ['$log'
     };
     MailChimpSubscription = $resource(url, params, actions);
 
-    // mailchimp.successMessage = "Almost finished... We need to confirm your email address. To complete the subscription process, please click the link in the email we just sent you.";
+    // mailchimp.successMessage = "Thanks for subscribing! Please confirm the email you receive to complete the process.";
     // Send subscriber data to MailChimp
     MailChimpSubscription.save(
       // Successfully sent data to MailChimp.

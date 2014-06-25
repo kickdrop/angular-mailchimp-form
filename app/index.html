@@ -13,6 +13,7 @@
   <link href="bower_components/animate.css/animate.min.css" media="all" rel="stylesheet" type="text/css" />
   <link href="css/animations.css" media="all" rel="stylesheet">
   <link href="bower_components/font-awesome/css/font-awesome.min.css" media=all rel=stylesheet />
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400' rel='stylesheet' type='text/css'>
 
   <script src="bower_components/modernizr/modernizr.js"></script>
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name=viewport>
@@ -22,9 +23,8 @@
 
 <body>
   <div class="wrapper">
-    <div class="form-header">
-      <h1>Subscribe to receive email updates</h1>
-    </div>
+    <img src="images/phone.png" class="phone" />
+
     <form name="MailchimpSubscriptionForm" ng-controller="MailchimpSubscriptionCtrl" ng-submit="addSubscription(mailchimp)" ng-class="{success: mailchimp.result === 'success'}">
       <div ng-hide="mailchimp.result === 'success'">
         <input class="hidden" type="hidden" ng-model="mailchimp.username" ng-init="mailchimp.username='kickdrop'">
@@ -32,23 +32,21 @@
         <input class="hidden" type="hidden" ng-model="mailchimp.u" ng-init="mailchimp.u='425ab2b3e010a637cca296582'">
         <input class="hidden" type="hidden" ng-model="mailchimp.id" ng-init="mailchimp.id='d2686186f0'">
 
+        <h1>Get notified when we launch our app.</h1>
+
         <!-- Show error message if MailChimp unsuccessfully added the email to the list. -->
         <div ng-show="mailchimp.result === 'error'" ng-cloak>
-          <span ng-bind-html="mailchimp.errorMessage"></span>
+          <p ng-bind-html="mailchimp.errorMessage" class="error"></p>
         </div>
 
-        <div class="form-group">
-          <input class="form-control" type="email" name="email" ng-model="mailchimp.email" placeholder="Enter your email address" required>
-        </div>
+        <input class="form-control" type="email" name="email" ng-model="mailchimp.email" placeholder="Enter your email address" required>
 
-        <div class="form-group submit">
-          <input class="btn btn-lg" ng-disabled="MailchimpSubscriptionForm.$invalid" ng-click="addSubscription(mailchimp)" type="submit" value="JOIN">
-        </div>
+        <input class="btn btn-lg" ng-disabled="MailchimpSubscriptionForm.$invalid" ng-click="addSubscription(mailchimp)" type="submit" value="SUBSCRIBE">
       </div>
 
       <!-- Show success message if MailChimp successfully added email to the list. -->
       <div ng-show="mailchimp.result === 'success'" class="result-message" ng-cloak >
-        <span>{{mailchimp.successMessage}}</span>
+        <h2>{{mailchimp.successMessage}}</h2>
       </div>
     </form>
   </div>

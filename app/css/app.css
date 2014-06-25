@@ -47,14 +47,17 @@ p.error {
 .phone {
   display: inline-block;
   margin-right: 30px;
+  max-width: 100%;
 }
 
 form {
-  max-width: 450px;
+  width: 450px;
+  min-height: 256px;
   display: inline-block;
   vertical-align: middle;
   padding: 0;
   text-align: left;
+  position: relative;
 }
 
 form .form-control {
@@ -99,4 +102,12 @@ form input[type="submit"]:hover {
 
 form .form-group.submit input[type="submit"].disabled {
   background-color:#999
+}
+
+.result-message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 15px;
 }

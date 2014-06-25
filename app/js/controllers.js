@@ -40,7 +40,6 @@ mailchimpSubscriptionControllers.controller('MailchimpSubscriptionCtrl', ['$log'
     };
     MailChimpSubscription = $resource(url, params, actions);
 
-    // mailchimp.successMessage = "Thanks for subscribing! Please confirm the email you receive to complete the process.";
     // Send subscriber data to MailChimp
     MailChimpSubscription.save(
       // Successfully sent data to MailChimp.
@@ -66,7 +65,7 @@ mailchimpSubscriptionControllers.controller('MailchimpSubscriptionCtrl', ['$log'
         }
         // MailChimp returns a success.
         else if (response.result === 'success') {
-          mailchimp.successMessage = response.msg;
+          mailchimp.successMessage = "Thanks for subscribing! Please confirm the email you receive to complete the process.";
         }
       },
 

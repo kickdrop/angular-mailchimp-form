@@ -5,7 +5,6 @@ var mailchimpSubscriptionApp = angular.module('mailchimpSubscriptionApp', [
   'ngAnimate',
   'ngResource',
   'ngSanitize',
-  'mailchimpSubscriptionControllers',
-  'angularLocalStorage'
+  'mailchimpSubscriptionControllers'
 ]);
 

@@ -63,6 +63,7 @@ Now browse to the app at `http://localhost:8000/app/index.html`.
     app/                --> all of the files to be used in production
       css/              --> css files
         app.css         --> default stylesheet
+        animations.css  --> stylesheet for custom animations
       index.html        --> app layout file (the main html template file of the app)
       js/               --> javascript files
         app.js          --> application

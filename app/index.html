@@ -3,68 +3,68 @@
 <!--[if IE 7]>         <html lang="en" ng-app="mailchimpSubscriptionApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="mailchimpSubscriptionApp" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en" ng-app="mailchimpSubscriptionApp" class="no-js"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Kickdrop Angular Mailchimp Form</title>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Kickdrop Angular Mailchimp Form</title>
 
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <link href="css/app.css" media="all" rel="stylesheet">
-  <link href="bower_components/animate.css/animate.min.css" media="all" rel="stylesheet" type="text/css" />
-  <link href="css/animations.css" media="all" rel="stylesheet">
-  <link href="bower_components/font-awesome/css/font-awesome.min.css" media=all rel=stylesheet />
-  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link href="css/app.css" media="all" rel="stylesheet">
+    <link href="bower_components/animate.css/animate.min.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="css/animations.css" media="all" rel="stylesheet">
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" media=all rel=stylesheet />
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400' rel='stylesheet' type='text/css'>
 
-  <script src="bower_components/modernizr/modernizr.js"></script>
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name=viewport>
-  <style>[ng-cloak] { display: none; }</style>
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name=viewport>
+    <style>[ng-cloak] { display: none; }</style>
 
-</head>
+  </head>
 
-<body>
-  <div class="wrapper">
-    <img src="images/phone.png" class="phone" />
+  <body>
+    <div class="wrapper">
+      <img src="images/phone.png" class="phone" />
 
-    <form name="MailchimpSubscriptionForm" ng-controller="MailchimpSubscriptionCtrl" ng-class="{success: mailchimp.result === 'success'}">
-      <div ng-hide="mailchimp.result === 'success'" class="form-container">
-        <input class="hidden" type="hidden" ng-model="mailchimp.username" ng-init="mailchimp.username='kickdrop'">
-        <input class="hidden" type="hidden" ng-model="mailchimp.dc" ng-init="mailchimp.dc='us3'">
-        <input class="hidden" type="hidden" ng-model="mailchimp.u" ng-init="mailchimp.u='425ab2b3e010a637cca296582'">
-        <input class="hidden" type="hidden" ng-model="mailchimp.id" ng-init="mailchimp.id='d2686186f0'">
+      <form name="MailchimpSubscriptionForm" ng-controller="MailchimpSubscriptionCtrl" ng-class="{success: mailchimp.result === 'success'}">
+        <div ng-hide="mailchimp.result === 'success'" class="form-container">
+          <input class="hidden" type="hidden" ng-model="mailchimp.username" ng-init="mailchimp.username='kickdrop'">
+          <input class="hidden" type="hidden" ng-model="mailchimp.dc" ng-init="mailchimp.dc='us3'">
+          <input class="hidden" type="hidden" ng-model="mailchimp.u" ng-init="mailchimp.u='425ab2b3e010a637cca296582'">
+          <input class="hidden" type="hidden" ng-model="mailchimp.id" ng-init="mailchimp.id='d2686186f0'">
 
-        <h1>Get notified when we launch our app.</h1>
+          <h1>Get notified when we launch our app.</h1>
 
-        <!-- Show error message if MailChimp unsuccessfully added the email to the list. -->
-        <div ng-show="mailchimp.result === 'error'" ng-cloak>
-          <p ng-bind-html="mailchimp.errorMessage" class="error"></p>
+          <!-- Show error message if MailChimp unsuccessfully added the email to the list. -->
+          <div ng-show="mailchimp.result === 'error'" ng-cloak>
+            <p ng-bind-html="mailchimp.errorMessage" class="error"></p>
+          </div>
+
+          <input class="form-control" type="email" name="email" ng-model="mailchimp.email" placeholder="Enter your email address" required>
+
+          <input class="btn btn-lg" ng-disabled="MailchimpSubscriptionForm.$invalid" ng-click="addSubscription(mailchimp)" type="submit" value="SUBSCRIBE">
         </div>
 
-        <input class="form-control" type="email" name="email" ng-model="mailchimp.email" placeholder="Enter your email address" required>
+        <!-- Show success message if MailChimp successfully added email to the list. -->
+        <div ng-show="mailchimp.result === 'success'" class="result-message" ng-cloak >
+          <h2>{{mailchimp.successMessage}}</h2>
+        </div>
+      </form>
+    </div>
 
-        <input class="btn btn-lg" ng-disabled="MailchimpSubscriptionForm.$invalid" ng-click="addSubscription(mailchimp)" type="submit" value="SUBSCRIBE">
-      </div>
+    <!-- In production use:
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+    -->
 
-      <!-- Show success message if MailChimp successfully added email to the list. -->
-      <div ng-show="mailchimp.result === 'success'" class="result-message" ng-cloak >
-        <h2>{{mailchimp.successMessage}}</h2>
-      </div>
-    </form>
-  </div>
-
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
-
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.js"></script>
-  <script src="bower_components/angular-resource/angular-resource.js"></script>
-  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/services.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="js/directives.js"></script>
-</body>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/directives.js"></script>
+  </body>
 </html>

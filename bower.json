@@ -12,8 +12,7 @@
     "angular-cookies": "1.2.x",
     "angular-animate": "1.2.x",
     "angular-resource": "1.2.x",
-    "angular-sanitize": "1.2.x",
-    "angularLocalStorage": "0.1.x"
+    "angular-sanitize": "1.2.x"
   },
   "devDependencies": {
     "angular-mocks": "1.2.x",

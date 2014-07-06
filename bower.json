@@ -1,6 +1,6 @@
 {
-  "name": "angular-tasklist",
-  "description": "A task list",
+  "name": "angular-mailchimp-form",
+  "description": "A mailchimp subscriber form",
   "version": "0.0.0",
   "dependencies": {
     "modernizr": "x.x.x",
